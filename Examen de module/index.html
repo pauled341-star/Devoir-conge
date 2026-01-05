@@ -46,7 +46,7 @@
     <footer>
     
         <div class="container">
-            <form id="Contact" onsubmit="verif(event)">
+            <form id="conctat"  onsubmit="return verif();">
         <h2>Me Contacter</h2>
         <label >Adresse email:</label>
         <input type="text" id="email" placeholder="Adresse email" >
@@ -55,7 +55,7 @@
          <label >Message:</label>
 
          <textarea id="Message" cols="20" rows="3" ></textarea>
-         <button type="submit" >Envoyer</button>
+         <input type="submit" value="Envoyer">
             </form>
             
           </div>
@@ -70,6 +70,6 @@
 
 
 
-  <script src="contact.js"></script>
+<script src="contact.js"></script>
 </body>
 </html>

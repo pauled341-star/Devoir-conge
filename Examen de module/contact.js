@@ -1,54 +1,49 @@
 
 
-function verif(event) {
+function verif() {
+    var email = document.getElementById("email");
+    var nom = document.getElementById("nom");
+    var message = document.getElementById("message");
 
-    event.preventDefault();
+    var valide = true;
 
-   const champnom = document.getElementById("nom")
-   const champemail = document.getElementById("email")
-   const champmessage = document.getElementById("message")
+    
+    email.classList.remove("error");
+    nom.classList.remove("error");
+    message.classList.remove("error");
 
-
-   const nom = champnom.value.trim();
-   const email = champemail.value.trim();
-   const message = champmessage.value.trim();
-
-    var verification = true;
-
-    champnom.style.border = "";
-    champemail.style.border = "";
-    champmessage.style.border = "";
-
-    if(!email){
-        champemail.style.border = "2px solid red"
-        verification = false;
-    }
-    if(!nom){
-        champnom.style.border = "2px solid red"
-        verification = false;
-    }
-    if(!message){
-        champmessage.style.border = "2px solid red"
-        verification = false;
+    
+    if (email.value === "") {
+        email.classList.add("error");
+        valide = false;
     }
 
-
-    if(email && (!email.includes("@") || !email.includes("."))) {
-        champemail.style.border = "2px solid red";
-        alert("veuillez entrez une adresse email valide.");
-        return false;
+    if (nom.value === "") {
+        nom.classList.add("error");
+        valide = false;
     }
-    if(message && message.length < 150) {
-        champmessage.style.border = "2px solid red";
-        alert("Le message doit contenir au moins 150 caracteres.");
+
+    if (message.value === "") {
+        message.classList.add("error");
+        valide = false;
+    }
+
+    if (!valide) {
+        alert("Veuillez remplir tous les champs.");
         return false;
     }
 
-    if(!verification){
-        alert("veuillez remplir tous les champs.");
+    
+    if (!email.value.includes("@") || !email.value.includes(".")) {
+        alert("Adresse email invalide.");
+        email.classList.add("error");
         return false;
     }
 
-   
-   
+
+    if (message.value.length < 150) {
+        alert("Le message doit contenir au moins 150 caractères.");
+        message.classList.add("error");
+        return false;
+    }
 }
